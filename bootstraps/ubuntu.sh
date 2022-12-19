@@ -24,6 +24,7 @@ ssh () {
 	cat <<-EOF | sudo tee -a $MOUNTRC
 
 	ssh () {
+		[ ! -e /etc/ssh/ssh_host_key ] && ssh-keygen -A
 		service ssh start
 	}
 	ssh
