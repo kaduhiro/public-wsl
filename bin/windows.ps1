@@ -73,7 +73,7 @@ function ping() {
         }
     }
 
-    Get-NetFirewallRule -name  FPS-ICMP4-ERQ-In-NoScope
+    Get-NetFirewallRule -name FPS-ICMP4-ERQ-In-NoScope
 }
 
 function ssh() {
