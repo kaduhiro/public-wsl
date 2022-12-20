@@ -23,11 +23,11 @@ init () {
 ssh () {
 	cat <<-EOF | sudo tee -a $MOUNTRC
 
-	ssh () {
+	_ssh () {
 		[ ! -e /etc/ssh/ssh_host_key ] && ssh-keygen -A
 		service ssh start
 	}
-	ssh
+	_ssh
 
 	EOF
 }
@@ -35,7 +35,7 @@ ssh () {
 docker () {
 	cat <<-EOF | sudo tee -a $MOUNTRC
 
-	docker () {
+	_docker () {
 		mkdir -p /sys/fs/cgroup/systemd
 		mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
 
@@ -55,7 +55,7 @@ docker () {
 
 		service docker start
 	}
-	docker
+	_docker
 
 	EOF
 }
